@@ -4,7 +4,7 @@
 
 ### Q1: How is a Skip-gram model trained? What is its objective and how is softmax useful?
 
-### *Q2: What is the problem with the original Skip-gram model?  How are they solved?  (Conceptual discussion is enough.)
+### *Q2: What is the problem with the original Skip-gram model?  How is it solved?  (Conceptual discussion is enough.)
 
 ### Q3: What problem is "Subsampling" trying to solve? 
 
