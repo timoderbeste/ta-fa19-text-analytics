@@ -20,4 +20,4 @@
 
 ### Q7: Would you call Elmo a language model? Why or why not?
 
-### *Q8: What is the advantage of the Bert architecture comparing to the one employed by Elmo? 
+### *Q8: What is the advantage of the architecture of Bert comparing to the one of Elmo? 
