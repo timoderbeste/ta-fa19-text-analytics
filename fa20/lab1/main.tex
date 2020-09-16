@@ -1,0 +1,293 @@
+%%
+% Please see https://bitbucket.org/rivanvx/beamer/wiki/Home for obtaining beamer.
+%%
+\documentclass{beamer}
+
+\usetheme{Luebeck}
+\usecolortheme{crane}
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+
+\usepackage[T1]{fontenc}
+\usepackage{beramono}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{pifont}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+%\include{questionize}
+
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    breaklines=true
+}
+
+
+\hypersetup{%
+  colorlinks=true,% hyperlinks will be black
+  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
+}
+\begin{document}
+
+\title{MSiA490 SEC20/28\\ Special Topics: Text Analytics}
+\subtitle{Lab 1 - Tokenization}
+\author{Timo Wang}
+\institute{Northwestern University}
+\date{September 17, 2020}
+
+\titlepage
+
+\section{What is tokenization?}
+\subsection{Raw text}
+\begin{frame}
+    \frametitle{What is tokenization?}
+    \framesubtitle{Raw text}
+    \begin{figure}
+        \includegraphics[scale=0.3]{raw-text}    
+    \end{figure}
+\end{frame}
+
+\subsection{Sentence-level tokenization}
+\begin{frame}
+    \frametitle{What is tokenization?}
+    \framesubtitle{Sentence-level tokenization}
+    \begin{figure}
+        \includegraphics[scale=0.3]{sent}  
+    \end{figure}
+\end{frame}
+
+\subsection{Word-level tokenization}
+\begin{frame}
+    \frametitle{What is tokenization?}
+    \framesubtitle{Word-level tokenization}
+    \begin{figure}
+        \includegraphics[scale=0.3]{word}    
+    \end{figure}
+\end{frame}
+
+\section{How to do tokenization?}
+\begin{frame}
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Overview}
+    \begin{itemize}
+        \item NLTK
+        \item Spacy
+        \item Stanford Stanza
+    \end{itemize}
+\end{frame}
+
+\subsection{NLTK}
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{NLTK -- Installation}
+    
+    \begin{block}{Shell}
+        \begin{lstlisting}
+pip install nltk
+        \end{lstlisting}
+    \end{block}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+import nltk
+nltk.download()
+        \end{lstlisting}
+    \end{block}
+    
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{NLTK -- Sentence-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+from nltk.tokenize import sent_tokenize
+
+text = `I am happy. I am sleepy. I am dreamy.'
+sents = sent_tokenize(text)
+        \end{lstlisting}    
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{NLTK -- Word-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+from nltk.tokenize import word_tokenize
+
+text = `I am happy. I am sleepy. I am dreamy.' 
+words = word_tokenize(text)
+        \end{lstlisting}    
+    \end{block}
+
+\end{frame}
+
+\subsection{Spacy}
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Spacy -- Installation}
+    \begin{block}{Shell}
+        \begin{lstlisting}
+pip install spacy
+python -m spacy download en_core_web_sm
+        \end{lstlisting}    
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Spacy -- Sentence-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+import spacy
+
+nlp = spacy.load('en_core_web_sm')
+nlp.add_pipe(nlp.create_pipe('sentencizer'))
+
+text = `I am happy. I am sleepy. I am dreamy.' 
+doc = nlp(text)
+
+sents = [sent.string.strip() for sent in doc.sents]        
+        \end{lstlisting}        
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Spacy -- Word-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+import spacy
+
+nlp = spacy.load('en_core_web_sm')
+nlp.add_pipe(nlp.create_pipe('sentencizer'))
+
+text = `I am happy. I am sleepy. I am dreamy.' 
+doc = nlp(text)
+
+words = [token.text for token in doc]
+        \end{lstlisting}    
+    \end{block}
+
+\end{frame}
+
+
+\subsection{Stanford Stanza}
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Stanford Stanza -- Installation}
+    \begin{block}{Shell}
+        \begin{lstlisting}
+pip install stanza
+        \end{lstlisting}    
+    \end{block}
+    
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+import stanza
+stanza.download('en')
+        \end{lstlisting}    
+    \end{block}
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Stanford Stanza -- Sentence-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+import stanza
+
+text = `I am happy. I am sleepy. I am dreamy.'
+
+nlp = stanza.Pipeline('en')
+doc = nlp(text)
+sents = [' '.join([token.text for token in sentence.tokens]).strip() for sentence in doc.sentences]
+        \end{lstlisting}    
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[containsverbatim]
+    \frametitle{How to do tokenization?}
+    \framesubtitle{Stanford Stanza -- Word-level}
+    \begin{block}{Python Console}
+        \begin{lstlisting}
+from functools import reduce
+
+import stanza
+
+text = `I am happy. I am sleepy. I am dreamy.'
+
+nlp = stanza.Pipeline('en')
+words_by_sentence = [[token.text for token in sentence.tokens] for sentence in doc.sentences]
+words = reduce(lambda lst1,lst2: lst1 + lst2, words_by_sentence)
+
+        \end{lstlisting}    
+    \end{block}
+\end{frame}
+
+\section{Extra resources}
+\begin{frame}
+    \frametitle{Extra resources}
+    \begin{itemize}
+        \item Miniconda: \href{https://docs.conda.io/en/latest/miniconda.html}{https://docs.conda.io/en/latest/miniconda.html}.
+        \item NLTK: \href{https://www.nltk.org/}{https://www.nltk.org/}
+        \item Spacy: \href{https://spacy.io/usage/spacy-101}{https://spacy.io/usage/spacy-101}
+        \item Stanford Stanza: \href{https://stanfordnlp.github.io/stanza/}{https://stanfordnlp.github.io/stanza/}
+    \end{itemize}
+\end{frame}
+
+\section{Hands On}
+\begin{frame}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{handson}
+    \end{figure}
+\end{frame}
+
+\section{Quiz}
+\subsection{Task 1}
+\begin{frame}
+    \frametitle{Quiz}
+    \framesubtitle{Task 1}
+    Which library do you find easiest to use for tokenization?
+    \begin{enumerate}
+        \item[A] NLTK
+        \item[B] Spacy
+        \item[C] Stanford Stanza
+        \item[D] Other
+    \end{enumerate}
+\end{frame}
+
+\subsection{Task 2}
+\begin{frame}
+    \frametitle{Quiz}
+    \framesubtitle{Task 2}
+    Which library runs fastest for POS tagging?
+    \begin{enumerate}
+        \item[A] NLTK
+        \item[B] Spacy
+        \item[C] Stanford Stanza
+        \item[D] Other
+    \end{enumerate}
+\end{frame}
+
+\subsection{Task 3}
+\begin{frame}
+    \frametitle{Quiz}
+    \framesubtitle{Task 3}
+    Which library appears most memory efficient on your machine/OS of choice?
+    \begin{enumerate}
+        \item[A] NLTK
+        \item[B] Spacy
+        \item[C] Stanford Stanza
+        \item[D] Other
+    \end{enumerate}
+\end{frame}
+
+\end{document}
