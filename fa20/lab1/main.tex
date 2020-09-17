@@ -15,6 +15,7 @@
 \usepackage{pifont}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{multicol}
 
 
 %\include{questionize}
@@ -31,45 +32,69 @@
 }
 \begin{document}
 
-\title{MSiA490 SEC20/28\\ Special Topics: Text Analytics}
-\subtitle{Lab 1 - Tokenization}
+\title{MSiA490 SEC20/28\\ Text Analytics}
+\subtitle{Lab 1 - Tokenization and Beyond}
 \author{Timo Wang}
 \institute{Northwestern University}
 \date{September 17, 2020}
 
-\titlepage
-
-\section{What is tokenization?}
-\subsection{Raw text}
 \begin{frame}
-    \frametitle{What is tokenization?}
-    \framesubtitle{Raw text}
-    \begin{figure}
-        \includegraphics[scale=0.3]{raw-text}    
-    \end{figure}
+    \titlepage
 \end{frame}
 
-\subsection{Sentence-level tokenization}
-\begin{frame}
-    \frametitle{What is tokenization?}
-    \framesubtitle{Sentence-level tokenization}
-    \begin{figure}
-        \includegraphics[scale=0.3]{sent}  
-    \end{figure}
+\begin{frame}{Overview}
+    \tableofcontents[hideallsubsections]
 \end{frame}
 
-\subsection{Word-level tokenization}
+\section{Who is Timo?}
 \begin{frame}
-    \frametitle{What is tokenization?}
-    \framesubtitle{Word-level tokenization}
-    \begin{figure}
-        \includegraphics[scale=0.3]{word}    
-    \end{figure}
+    \frametitle{Who is Timo?}
+    \begin{itemize}
+        \item Third-year PhD student in Computer Science
+        \item Academic experience
+        \begin{itemize}
+            \item Unsupervised multi-Document summarization
+            \item Knowledge graph completion through inference
+            \item Integrated frontend interface for AI systems
+        \end{itemize}
+        \item Industry experience
+        \begin{itemize}
+            \item Front-end developer
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
-\section{How to do tokenization?}
+%\section{What is tokenization?}
+%\subsection{Raw text}
+%\begin{frame}
+%    \frametitle{What is tokenization?}
+%    \framesubtitle{Raw text}
+%    \begin{figure}
+%        \includegraphics[scale=0.3]{raw-text}    
+%    \end{figure}
+%\end{frame}
+%
+%\subsection{Sentence-level tokenization}
+%\begin{frame}
+%    \frametitle{What is tokenization?}
+%    \framesubtitle{Sentence-level tokenization}
+%    \begin{figure}
+%        \includegraphics[scale=0.3]{sent}  
+%    \end{figure}
+%\end{frame}
+%
+%\subsection{Word-level tokenization}
+%\begin{frame}
+%    \frametitle{What is tokenization?}
+%    \framesubtitle{Word-level tokenization}
+%    \begin{figure}
+%        \includegraphics[scale=0.3]{word}    
+%    \end{figure}
+%\end{frame}
+
+\section{Tokenization with common libraries}
 \begin{frame}
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Overview}
     \begin{itemize}
         \item NLTK
@@ -80,7 +105,7 @@
 
 \subsection{NLTK}
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{NLTK -- Installation}
     
     \begin{block}{Shell}
@@ -98,7 +123,7 @@ nltk.download()
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{NLTK -- Sentence-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -112,7 +137,7 @@ sents = sent_tokenize(text)
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{NLTK -- Word-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -127,7 +152,7 @@ words = word_tokenize(text)
 
 \subsection{Spacy}
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Spacy -- Installation}
     \begin{block}{Shell}
         \begin{lstlisting}
@@ -139,7 +164,7 @@ python -m spacy download en_core_web_sm
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Spacy -- Sentence-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -158,7 +183,7 @@ sents = [sent.string.strip() for sent in doc.sents]
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Spacy -- Word-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -179,7 +204,7 @@ words = [token.text for token in doc]
 
 \subsection{Stanford Stanza}
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Stanford Stanza -- Installation}
     \begin{block}{Shell}
         \begin{lstlisting}
@@ -196,7 +221,7 @@ stanza.download('en')
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Stanford Stanza -- Sentence-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -213,7 +238,7 @@ sents = [' '.join([token.text for token in sentence.tokens]).strip() for sentenc
 \end{frame}
 
 \begin{frame}[containsverbatim]
-    \frametitle{How to do tokenization?}
+    \frametitle{Tokenization with common libraries}
     \framesubtitle{Stanford Stanza -- Word-level}
     \begin{block}{Python Console}
         \begin{lstlisting}
@@ -231,9 +256,10 @@ words = reduce(lambda lst1,lst2: lst1 + lst2, words_by_sentence)
     \end{block}
 \end{frame}
 
-\section{Extra resources}
+\subsection{Extra resources}
 \begin{frame}
-    \frametitle{Extra resources}
+    \frametitle{Tokenization with common libraries}
+    \framesubtitle{Extra resources}
     \begin{itemize}
         \item Miniconda: \href{https://docs.conda.io/en/latest/miniconda.html}{https://docs.conda.io/en/latest/miniconda.html}.
         \item NLTK: \href{https://www.nltk.org/}{https://www.nltk.org/}
@@ -242,12 +268,23 @@ words = reduce(lambda lst1,lst2: lst1 + lst2, words_by_sentence)
     \end{itemize}
 \end{frame}
 
-\section{Hands On}
+
+
+\section{Hands on}
 \begin{frame}
-    \begin{figure}
-        \centering
-        \includegraphics[scale=0.3]{handson}
-    \end{figure}
+    \frametitle{Hands on}
+    \framesubtitle{Tokenization, stemming and POS tagging}
+    \begin{block}{Task}
+        \begin{enumerate}
+            \item Install and evaluate 2 to 3 text preprocessing libraries (in python or Java).
+            \item Download a publicly available text corpus.
+            \item Apply tokenization, stemming and POS tagging on the full corpus.
+        \end{enumerate}
+    \end{block}
+    \begin{block}{Note}
+        \scriptsize
+        Keep an eye out for the time/memory consumption of each library as well as their ease of use.     
+    \end{block}
 \end{frame}
 
 \section{Quiz}
@@ -289,5 +326,11 @@ words = reduce(lambda lst1,lst2: lst1 + lst2, words_by_sentence)
         \item[D] Other
     \end{enumerate}
 \end{frame}
+
+\section{Thoughts \& feedbacks}
+\begin{frame}
+    \frametitle{Thoughts \& feedbacks}
+\end{frame}
+
 
 \end{document}
