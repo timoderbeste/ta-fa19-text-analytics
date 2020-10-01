@@ -24,7 +24,7 @@
 
 
 
-### *Q6: Which fine-tuning tasks may cause Bert to seem less robust? 
+### *Q6: What down streaming tasks may cause Bert to seem less robust? 
 
 
 
