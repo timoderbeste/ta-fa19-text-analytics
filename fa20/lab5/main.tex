@@ -47,37 +47,102 @@
 \end{frame}
 
 \section{What is classification?}
+\begin{frame}
+    \frametitle{What is classification?}
+    \begin{figure}
+        \includegraphics[scale=0.23]{classification}
+        \includegraphics[scale=0.25]{knn_classification}
+        \caption{Given a set of feature vectors, e.g. sentence embeddings, word embeddings, bag-of-words, etc., separate them from each other, either linearly (left) or non-linearly (right)}
+    \end{figure}
+\end{frame}
 
 \section{How do we approach classification?}
+\subsection{Simple solution}
+\begin{frame}
+    \frametitle{How do we approach classification?}
+    \framesubtitle{Simple solution}
+    Use existing packages/libraries!
+    \begin{itemize}
+        \item \textbf{scikit-learn} provides both SVM models as well as logistic regression models.
+        \item \textbf{FastText} is an alternative tool that also works as command line programs. 
+    \end{itemize}
+\end{frame}
+
+\subsection{Data preparation}
+\begin{frame}
+    \frametitle{How do we approach classification?}
+    \framesubtitle{Data preparation}
+    $\mathbf{X}$: a 2-d array of size $(n, d)$, where $n$ is the number of training examples and $d$ is the size of the feature.\\
+    $\mathbf{y}$: a 1-d array of length $n$, where $n$ is the number of training examples.
+\end{frame}
+
+\subsection{Model fitting and prediction}
+\begin{frame}[containsverbatim]
+    \frametitle{How do we approach classification?}
+    \framesubtitle{Model fitting and prediction}
+    \begin{block}{Python}
+        \tiny
+        \begin{lstlisting}
+model.fit(X[:8,:], y[:8])
+y_pred = model.predict(X[8:,:], y[8:])
+
+accuracy_score(y, y_pred)
+f1_score(y, y_pred)
+        \end{lstlisting}
+    \end{block}
+\end{frame}
+
+%\subsection{Tips on model selection}
+%\begin{frame}
+%    \frametitle{How do we approach classification?}
+%    \framesubtitle{Tips on model selection}
+%\end{frame}
 
 \section{How do we approach text classification?}
+%\subsection{Choose text representation}
+%\begin{frame}
+%    \frametitle{How do we approach text classification?}
+%    \framesubtitle{Choose text representation}
+%    We need to determine how to represent the text we want to classify. Do we embed the text using some language model, e.g. BERT, or can we simply use bag-of-word representation and obtain a feature vector?  
+%\end{frame}
 
-\section{Tools and packages available}
-
-\section{Quiz}
-\subsection{Task 1}
+\subsection{General pipeline}
 \begin{frame}
-    \frametitle{Quiz}
-    \framesubtitle{Task 1}
+    \frametitle{How do we approach text classification?}
+    \framesubtitle{General pipeline}
+    \begin{enumerate}
+        \item[Step 1] Study the content of your dataset and identify your task. 
+        \item[Step 2] Transform input text into some vectorized representation. (bag-of-word, BERT, average of word embeddings, etc.)
+        \item[Step 3] Study the vectorized representations (through visualization using matplotlib)
+        \item[Step 4] Choose a classifier model. (logistic regression, SVM, fasttext, etc.)
+    \end{enumerate}
+    Note: if you use FastText, you can skip the first three steps.
 \end{frame}
 
-\subsection{Task 2}
-\begin{frame}
-    \frametitle{Quiz}
-    \framesubtitle{Task 2}
-\end{frame}
+%\section{Quiz}
+%\subsection{Task 1}
+%\begin{frame}
+%    \frametitle{Quiz}
+%    \framesubtitle{Task 1}
+%\end{frame}
+%
+%\subsection{Task 2}
+%\begin{frame}
+%    \frametitle{Quiz}
+%    \framesubtitle{Task 2}
+%\end{frame}
+%
+%\subsection{Task 3}
+%\begin{frame}
+%    \frametitle{Quiz}
+%    \framesubtitle{Task 3}
+%\end{frame}
 
-\subsection{Task 3}
-\begin{frame}
-    \frametitle{Quiz}
-    \framesubtitle{Task 3}
-\end{frame}
-
-\section{Thoughts \& feedbacks}
-\begin{frame}
-    \frametitle{Thoughts \& feedbacks}
-    
-\end{frame}
+%\section{Thoughts \& feedbacks}
+%\begin{frame}
+%    \frametitle{Thoughts \& feedbacks}
+%    
+%\end{frame}
 
 
 \end{document}
