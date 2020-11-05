@@ -1,5 +1,5 @@
 """
-Note: This sample code is adapted from this great tutorial:
+0;95;0cNote: This sample code is adapted from this great tutorial:
 https://machinelearningmastery.com/develop-word-embedding-model-predicting-movie-review-sentiment/
 
 Data used in this tutorial can be downloaded from:
@@ -13,16 +13,12 @@ from collections import Counter
 from string import punctuation
 from typing import List
 
-import keras
 import numpy as np
-import tensorflow as tf
-from keras import Model
-from keras.layers import Dense, Dropout, Embedding, Flatten
-from keras.layers.convolutional import Conv1D, MaxPooling1D
-from keras.models import Sequential
-from keras.optimizers import Adam
-from keras.preprocessing.sequence import pad_sequences
-from keras.preprocessing.text import Tokenizer
+from tensorflow.keras.layers import Dense, Dropout, Embedding, Flatten
+from tensorflow.keras.layers import Conv1D, MaxPooling1D
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
@@ -48,21 +44,22 @@ def clean_text(text: str) -> List[str]:
 
 
 def process_texts(file_dir: str, is_train: bool) -> None:
-    all_tokens = []
+    all_texts = []
     for file_name in os.listdir(file_dir):
         if is_train and file_name.startswith('cv9'):
             continue
         if not is_train and not file_name.startswith('cv9'):
             continue
         file_path = os.path.join(file_dir, file_name)
-        tokens = clean_text(load_text(file_path))
-        all_tokens.append(tokens)
-    return all_tokens
+        cleaned_text = clean_text(load_text(file_path))
+        all_texts.append(cleaned_text)
+    return all_texts
 
 
 def build_cnn_classifier(vocab_size: int, max_length: int, emb_size=128, num_filters=32, kernel_size=8) -> Sequential:
     model = Sequential()
-    model.add(Embedding(vocab_size, emb_size, input_length=max_length))
+    model.add(Embedding(vocab_size, emb_size, input_length=max_length)) # max_len x emb_size
+    
     model.add(Conv1D(filters=num_filters, kernel_size=kernel_size, activation='relu'))
     model.add(MaxPooling1D(pool_size=2))
     model.add(Flatten())
@@ -76,19 +73,19 @@ def build_cnn_classifier(vocab_size: int, max_length: int, emb_size=128, num_fil
 def main():
     file_path = os.path.join(DATASET_PATH, 'pos/cv000_29590.txt')
     text = load_text(file_path)
-    tokens = clean_text(text)
-    print(tokens)
-    
-    train_texts = process_texts(os.path.join(DATASET_PATH, 'pos'), True) + \
-                   process_texts(os.path.join(DATASET_PATH, 'neg'), True)
-    test_texts = process_texts(os.path.join(DATASET_PATH, 'pos'), False) + \
-                 process_texts(os.path.join(DATASET_PATH, 'neg'), False)
+    text = clean_text(text)
+    print(text)
+
+    train_texts = process_texts(os.path.join(DATASET_PATH, 'neg'), True) + \
+                  process_texts(os.path.join(DATASET_PATH, 'pos'), True)
+    test_texts = process_texts(os.path.join(DATASET_PATH, 'neg'), False) + \
+                 process_texts(os.path.join(DATASET_PATH, 'pos'), False)
     
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(train_texts)
-    
-    encoded_train_texts = tokenizer.texts_to_sequences(train_texts)
     max_length = max([len(s.split()) for s in train_texts])
+
+    encoded_train_texts = tokenizer.texts_to_sequences(train_texts)    
     X_train = pad_sequences(encoded_train_texts, maxlen=max_length, padding='post')
     y_train = np.array([0 for _ in range(900)] + [1 for _ in range(900)])
     

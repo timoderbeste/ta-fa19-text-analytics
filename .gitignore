@@ -157,3 +157,6 @@ Mkfile.old
 dkms.conf
 **/.DS_Store
 **/*.idea
+**/mlruns
+**/*.pkl
+**/*.h5
