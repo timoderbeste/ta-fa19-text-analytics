@@ -1,0 +1,74 @@
+\headcommand {\beamer@sectionpages {1}{0}}
+\headcommand {\beamer@subsectionpages {1}{0}}
+\headcommand {\sectionentry {1}{What is tokenization?}{1}{What is tokenization?}{0}}
+\headcommand {\beamer@subsectionpages {1}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{1}{Raw text}}
+\headcommand {\slideentry {1}{1}{1}{1/1}{Raw text}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{3}{Sentence-level tokenization}}
+\headcommand {\slideentry {1}{2}{1}{3/3}{Sentence-level tokenization}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{4}{Word-level tokenization}}
+\headcommand {\slideentry {1}{3}{1}{4/4}{Word-level tokenization}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@sectionpages {1}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\sectionentry {2}{How to do tokenization?}{5}{How to do tokenization?}{0}}
+\headcommand {\slideentry {2}{0}{1}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{NLTK}}
+\headcommand {\slideentry {2}{1}{1}{6/6}{NLTK}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {2}{1}{2}{7/7}{NLTK}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {2}{1}{3}{8/8}{NLTK}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\beamer@subsectionpages {6}{8}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{9}{Spacy}}
+\headcommand {\slideentry {2}{2}{1}{9/9}{Spacy}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {2}{2}{2}{10/10}{Spacy}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {2}{2}{3}{11/11}{Spacy}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionpages {9}{11}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{12}{Stanford Stanza}}
+\headcommand {\slideentry {2}{3}{1}{12/12}{Stanford Stanza}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{3}{2}{13/13}{Stanford Stanza}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {2}{3}{3}{14/14}{Stanford Stanza}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@sectionpages {5}{14}}
+\headcommand {\beamer@subsectionpages {12}{14}}
+\headcommand {\sectionentry {3}{Extra resources}{15}{Extra resources}{0}}
+\headcommand {\slideentry {3}{0}{1}{15/15}{}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@sectionpages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\sectionentry {4}{Hands On}{16}{Hands On}{0}}
+\headcommand {\slideentry {4}{0}{1}{16/16}{}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@sectionpages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\sectionentry {5}{Quiz}{17}{Quiz}{0}}
+\headcommand {\beamer@subsectionpages {17}{16}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{17}{Task 1}}
+\headcommand {\slideentry {5}{1}{1}{17/17}{Task 1}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{18}{Task 2}}
+\headcommand {\slideentry {5}{2}{1}{18/18}{Task 2}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{19}{Task 3}}
+\headcommand {\slideentry {5}{3}{1}{19/19}{Task 3}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@partpages {1}{19}}
+\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\beamer@sectionpages {17}{19}}
+\headcommand {\beamer@documentpages {19}}
+\headcommand {\gdef \inserttotalframenumber {18}}
