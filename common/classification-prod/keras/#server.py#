@@ -16,13 +16,12 @@ app = flask.Flask(__name__)
 @app.route('/classify', methods=['POST'])
 def classify_sentence():
     global model
-    global tokenizer
+q    global tokenizer
     
     params = flask.request.json
     if not params:
         return Response("{'error': 'Missing the sentence to classify'}", status=400, mimetype='application/json')
     sentence = params.get('sentence')
-    print('sentence', sentence)
     prediction = model.predict(np.array(pad_sequences(tokenizer.texts_to_sequences([sentence]),
                                                       maxlen=1368, padding='post')))
     

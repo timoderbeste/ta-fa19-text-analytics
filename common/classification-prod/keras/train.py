@@ -89,10 +89,10 @@ def main():
     mlflow.log_param('num_filters', num_filters)
     mlflow.log_param('kernel_size', kernel_size)
     
-    file_path = os.path.join(DATASET_PATH, 'pos/cv000_29590.txt')
-    text = load_text(file_path)
-    text = clean_text(text)
-    print(text)
+    #file_path = os.path.join(DATASET_PATH, 'pos/cv000_29590.txt')
+    #text = load_text(file_path)
+    #text = clean_text(text)
+    #print(text)
 
     train_texts = process_texts(os.path.join(DATASET_PATH, 'neg'), True) + \
                   process_texts(os.path.join(DATASET_PATH, 'pos'), True)
