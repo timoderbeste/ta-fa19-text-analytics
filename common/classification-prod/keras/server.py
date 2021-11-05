@@ -25,6 +25,7 @@ def classify_sentence():
     print('sentence', sentence)
     prediction = model.predict(np.array(pad_sequences(tokenizer.texts_to_sequences([sentence]),
                                                       maxlen=1368, padding='post')))
+    print('prediction', prediction)
     
     if prediction >= 0.5:
         return jsonify({
