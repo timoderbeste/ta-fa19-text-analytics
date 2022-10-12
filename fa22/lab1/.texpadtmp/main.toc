@@ -1,0 +1,14 @@
+\beamer@sectionintoc {1}{What is tokenization?}{1}{0}{1}
+\beamer@subsectionintoc {1}{1}{Raw text}{1}{0}{1}
+\beamer@subsectionintoc {1}{2}{Sentence-level tokenization}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Word-level tokenization}{4}{0}{1}
+\beamer@sectionintoc {2}{How to do tokenization?}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{NLTK}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Spacy}{9}{0}{2}
+\beamer@subsectionintoc {2}{3}{Stanford Stanza}{12}{0}{2}
+\beamer@sectionintoc {3}{Extra resources}{15}{0}{3}
+\beamer@sectionintoc {4}{Hands On}{16}{0}{4}
+\beamer@sectionintoc {5}{Quiz}{17}{0}{5}
+\beamer@subsectionintoc {5}{1}{Task 1}{17}{0}{5}
+\beamer@subsectionintoc {5}{2}{Task 2}{18}{0}{5}
+\beamer@subsectionintoc {5}{3}{Task 3}{19}{0}{5}

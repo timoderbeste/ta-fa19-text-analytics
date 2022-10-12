@@ -1,0 +1,41 @@
+\definecolor{darkgreen}{rgb}{0.,0.6,0.}
+
+\newcounter{questionizeIndex}
+
+\newenvironment{questionize}[1][0]{%
+    \setbeamercovered{invisible}%
+    \setcounter{questionizeIndex}{#1}%
+    \begin{itemize}%
+}{ %
+    \end{itemize}%
+}
+
+\newcommand{\question}[2]{%
+    % #1: question
+    % #2: answer (replaces question)
+    \stepcounter{questionizeIndex}%
+    \item<\value{questionizeIndex}->%
+    \only<\value{questionizeIndex}>{#1}%
+    \stepcounter{questionizeIndex}%
+    \only<\value{questionizeIndex}->{#2}%
+}
+
+\newcommand{\lquestion}[4]{%
+    % #1: question label
+    % #2: question
+    % #3: answer label
+    % #4: answer (replaces question)
+    \stepcounter{questionizeIndex}%
+    \item[\only<\value{questionizeIndex}->{\alt<\value{questionizeIndex}>{#1}{#3}}]<\value{questionizeIndex}->%
+    \only<\value{questionizeIndex}>{#2}%
+    \stepcounter{questionizeIndex}%
+    \only<\value{questionizeIndex}->{#4}%
+}
+
+\newcommand{\cquestion}[2]{\question{#2}{\color{#1}{#2}}}
+
+\newcommand{\ctrue}[1]{\cquestion{darkgreen}{#1}}
+\newcommand{\cfalse}[1]{\cquestion{red}{#1}}
+
+\newcommand{\ltrue}[1]{\lquestion{\textbf{?}}{#1}{$\checkmark$}{#1}}
+\newcommand{\lfalse}[1]{\lquestion{\textbf{?}}{#1}{$\times$}{#1}}
